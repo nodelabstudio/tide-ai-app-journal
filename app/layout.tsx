@@ -6,6 +6,7 @@ import {
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tide.angelrod.dev"),
   title: "Tide",
   description:
     "A reflection app: three prompts a day, a timeline of past entries, gentle pattern recognition.",
@@ -17,6 +18,20 @@ export const metadata: Metadata = {
   },
   // Favicon + apple-touch-icon are auto-discovered from
   // app/icon.tsx and app/apple-icon.tsx (Next 15 file conventions).
+  openGraph: {
+    type: "website",
+    siteName: "Tide",
+    title: "Tide",
+    description:
+      "A reflection app: three prompts a day, a timeline of past entries, gentle pattern recognition.",
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
+    title: "Tide",
+    description:
+      "A reflection app: three prompts a day, a timeline of past entries, gentle pattern recognition.",
+  },
 };
 
 export const viewport: Viewport = {
