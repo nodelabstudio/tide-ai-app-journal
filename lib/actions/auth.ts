@@ -31,10 +31,13 @@ export async function signInWithEmail(
     hdrs.get("origin") ??
     (hdrs.get("host") ? `https://${hdrs.get("host")}` : "http://localhost:3000");
 
+  // No query string on emailRedirectTo — Supabase's redirect-URL allowlist
+  // matches exactly, and `?next=…` would force every project to add a
+  // wildcard. The /auth/callback handler defaults to /today on its own.
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
-      emailRedirectTo: `${origin}/auth/callback?next=/today`,
+      emailRedirectTo: `${origin}/auth/callback`,
     },
   });
 
