@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@import "../styles/liquid-glass.css";
+
+/*
+  Tailwind v4 design tokens — exposed as CSS vars and Tailwind utilities
+  via @theme. Reference: tailwindcss.com/docs/theme.
+*/
+@theme {
+  /* Palette */
+  --color-tide-canvas: #fafaf7;     /* off-white */
+  --color-tide-ink: #1c1c1e;        /* graphite */
+  --color-tide-blue: #007aff;       /* system blue */
+  --color-tide-coral: #ff6b4a;      /* warm coral */
+
+  /* Midnight palette (used via [data-theme="midnight"]) */
+  --color-midnight-canvas: #0b0b0f;
+  --color-midnight-ink: #e8e8ea;
+
+  /* Apple-style 4/8/16/24/44 spacing — extend the default ramp */
+  --spacing-tap: 2.75rem;           /* 44px minimum tap target */
+
+  /* Type stack: SF Pro fallback chain.
+     If/when local SF Pro woff2 files are added, prepend them to the stack. */
+  --font-sans:
+    "SF Pro Text", "SF Pro Display",
+    -apple-system, BlinkMacSystemFont,
+    system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-display:
+    "SF Pro Display",
+    -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
+
+  /* Concentric corner tokens — see Apple HIG 2025 concentric corner rules.
+     A child card uses --radius-inner = parent radius - parent padding. */
+  --radius-card: 1.5rem;            /* 24px outer card */
+  --radius-card-inner: 1rem;        /* 16px inner card when parent has 8px padding */
+  --radius-pill: 9999px;
+}
+
+[data-theme="midnight"] {
+  --color-tide-canvas: var(--color-midnight-canvas);
+  --color-tide-ink: var(--color-midnight-ink);
+}
+
+/* Smoother default motion. Components should still use motion/react springs
+   for the "haptic-style" interactions described in the spec. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01", "cv11";
+  font-variant-numeric: tabular-nums;
+}

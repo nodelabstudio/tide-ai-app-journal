@@ -1,0 +1,24 @@
+{
+  "name": "Tide",
+  "short_name": "Tide",
+  "description": "A reflection app: three prompts a day, a timeline of past entries, gentle pattern recognition.",
+  "start_url": "/today",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#FAFAF7",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
