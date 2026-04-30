@@ -15,7 +15,9 @@ export interface VerifyCodeState {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const CODE_RE = /^[0-9]{6}$/;
+// Supabase default OTP length is 8 for new projects (was 6 historically).
+// Accept the full common range so this works regardless of project setting.
+const CODE_RE = /^[0-9]{6,10}$/;
 
 /**
  * Step 1: send a 6-digit OTP code to the user's email.
@@ -67,7 +69,7 @@ export async function verifyCode(
     return { error: "Email missing — start again.", email };
   }
   if (!CODE_RE.test(token)) {
-    return { error: "Enter the 6-digit code.", email };
+    return { error: "Enter the code from your email.", email };
   }
 
   const supabase = await createClient();
