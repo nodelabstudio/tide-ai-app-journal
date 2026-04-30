@@ -175,7 +175,7 @@ export default function LoginPage() {
                     <span className="font-semibold">{sendState.email}</span>
                   </p>
                   <p className="text-[12px] opacity-55">
-                    Check your inbox — expires in 60 minutes.
+                    Check your inbox — expires in 5 minutes.
                   </p>
                 </div>
               </div>
@@ -186,19 +186,19 @@ export default function LoginPage() {
                 htmlFor="token"
                 className="text-[11px] font-medium tracking-[0.18em] uppercase opacity-50"
               >
-                Verification code
+                6-digit code
               </label>
               <input
                 ref={codeInputRef}
                 id="token"
                 name="token"
                 inputMode="numeric"
-                pattern="[0-9]{6,10}"
-                maxLength={10}
+                pattern="[0-9]{6}"
+                maxLength={6}
                 autoComplete="one-time-code"
                 required
-                placeholder="Enter code"
-                className="rounded-[var(--radius-card-inner)] px-4 py-3 text-center text-[22px] font-semibold tracking-[0.32em] tabular-nums outline-none transition-colors focus:ring-2 focus:ring-[var(--color-tide-blue)]/40"
+                placeholder="000000"
+                className="rounded-[var(--radius-card-inner)] px-4 py-3 text-center text-[22px] font-semibold tracking-[0.4em] tabular-nums outline-none transition-colors focus:ring-2 focus:ring-[var(--color-tide-blue)]/40"
                 style={{
                   background:
                     "color-mix(in srgb, var(--color-tide-ink) 5%, transparent)",
